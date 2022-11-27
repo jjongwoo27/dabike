@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World", "time": datetime.datetime.now()}
+    return {"message": "2022-2 DA Senior Project DA-BIKE", "time": datetime.datetime.now()}
 
 
 @app.get("/location/")
