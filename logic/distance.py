@@ -2,7 +2,7 @@ import pandas as pd
 import heapq
 from haversine import haversine
 
-stats = pd.read_csv("./logic/station_info.csv", encoding="cp949")
+stats = pd.read_csv("./logic/station_info.csv")
 
 
 def get_near_stations(lat: float = 37.5556488, lon: float = 126.9106293):
