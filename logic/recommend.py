@@ -43,9 +43,8 @@ def get_combination(cafe: str = '1', food: str = '1', subway: str = '1', attract
 def get_recommended_stations(comb: str = '', start_station: int = 102):
     rec_stats = recommendation.loc[recommendation[(recommendation['combi'] == comb)
                                                   & (recommendation['start_station'] == start_station)].index[-1]]
-
     result = {}
-    i = 0
+    i = 1
     for stat in rec_stats['end_station'].split(','):
         result[stats.loc[stats[stats['station_num'] == int(stat)].index[0]]['station_name']] = {
             "latitude": str(stats.loc[stats[stats['station_num'] == int(stat)].index[0]]['latitude']),
