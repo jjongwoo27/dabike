@@ -4,9 +4,8 @@ recommendation = pd.read_csv("./logic/recommendation.csv")
 stats = pd.read_csv("./logic/station_info.csv")
 
 
-def get_combination(cafe: bool = True, food: bool = True, subway: bool = True, attraction: bool = True,
-                    culture: bool = True, park: bool = True, humidity: int = 63, precipitation: float = 0.0,
-                    temperature: float = 6.8):
+def get_combination(cafe: str = '1', food: str = '1', subway: str = '1', attraction: str = '1', culture: str = '1',
+                    park: str = '1', humidity: int = 63, precipitation: float = 0.0, temperature: float = 6.8):
     # categorization
     if humidity >= 71:
         humidity_cat = '1'
@@ -35,9 +34,8 @@ def get_combination(cafe: bool = True, food: bool = True, subway: bool = True, a
     else:
         temperature_cat = '7'
 
-    combination = "{0}{1}{2}{3}{4}{5}-{6}{7}{8}".format(str(int(cafe)), str(int(food)), str(int(subway)),
-                                                        str(int(attraction)), str(int(culture)), str(int(park)),
-                                                        humidity_cat, precipitation_cat, temperature_cat)
+    combination = "{0}{1}{2}{3}{4}{5}-{6}{7}{8}".format(cafe, food, subway, attraction, culture, park, humidity_cat,
+                                                        precipitation_cat, temperature_cat)
 
     return combination
 

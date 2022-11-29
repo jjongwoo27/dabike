@@ -17,8 +17,8 @@ async def near_stations(latitude: float = 37.5556488, longitude: float = 126.910
 
 
 @app.get("/api/recommendation/")
-async def recommended_stations(cafe: bool = True, food: bool = True, subway: bool = True, attraction: bool = True,
-                               culture: bool = True, park: bool = True, humidity: int = 63, precipitation: float = 0.0,
+async def recommended_stations(cafe: str = '1', food: str = '1', subway: str = '1', attraction: str = '1',
+                               culture: str = '1', park: str = '1', humidity: int = 63, precipitation: float = 0.0,
                                temperature: float = 6.8, start_station: int = 102):
     comb = rec.get_combination(cafe, food, subway, attraction, culture, park, humidity, precipitation, temperature)
     return rec.get_recommended_stations(comb, start_station)
