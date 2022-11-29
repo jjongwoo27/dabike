@@ -45,13 +45,14 @@ def get_recommended_stations(comb: str = '', start_station: int = 102):
                                                   & (recommendation['start_station'] == start_station)].index[-1]]
 
     result = {}
+    i = 0
     for stat in rec_stats['end_station'].split(','):
         result[stats.loc[stats[stats['station_num'] == int(stat)].index[0]]['station_name']] = {
             "latitude": str(stats.loc[stats[stats['station_num'] == int(stat)].index[0]]['latitude']),
             "longitude": str(stats.loc[stats[stats['station_num'] == int(stat)].index[0]]['longitude'])
         }
+        i += 1
+        if i > 5:
+            break
 
     return result
-
-# test
-# print(get_recommended_stations('111111-000', 102))
