@@ -22,7 +22,8 @@ def get_near_stations(lat: float = 37.5556488, lon: float = 126.9106293):
 
     result = {}
     for j in range(len(tmp)):
-        result[str(stats.loc[tmp[4-j][1]]['station_name'])] = {
+        result[j+1] = {
+            "station_name": str(stats.loc[tmp[4-j][1]]['station_name']),
             "station_num": str(stats.loc[tmp[4-j][1]]['station_num']),
             "distance": float(-tmp[4-j][0])
         }
