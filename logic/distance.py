@@ -15,6 +15,9 @@ def get_near_stations(lat: float = 37.5556488, lon: float = 126.9106293):
             if -heapq.heappop(near_stations)[0] > dis:
                 heapq.heappush(near_stations, (-dis, stat))
 
+    if len(near_stations) > 5:
+        heapq.heappop(near_stations)
+
     tmp = []
     for i in range(len(near_stations)):
         n_stat = heapq.heappop(near_stations)
